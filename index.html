@@ -3,17 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Charan Vadrevu - Pirate Portfolio</title>
+    <title>Charan Vadrevu - Future Pirate King Portfolio</title>
+    <!-- Preload key background images for faster loading -->
+    <link rel="preload" as="image" href="https://i.ibb.co/ymj8jBr3/luffy-sun-god-nika-gear-5-one-piece-4k-wallpaper-uhdpaper-com-403-1-g.jpg">
+    <link rel="preload" as="image" href="https://i.ibb.co/7F7RCbS/e082a41bcc2f2462ad2f90667639c4c7.jpg">
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
-        /* Custom styles to blend futuristic and anime themes */
-        body {
-            background-color: #0a0a1a; /* Deep space blue */
-            color: #e0e0e0;
+        /* Futuristic & Anime Theme Styles - Optimized & Improved Visibility */
+        html, body {
+            background-color: #0a0a1a; /* Fallback color */
+            background-image: linear-gradient(to top, rgba(10, 10, 26, 0.92) 5%, rgba(10, 10, 26, 0.7) 50%, rgba(10, 10, 26, 0.92) 100%), url('https://i.ibb.co/sdPJ3y7L/23f99a5188abf96c62dfaf7fe1699c0e.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            color: #f3f6fa;
             font-family: 'Roboto', sans-serif;
             overflow-x: hidden;
         }
@@ -21,44 +30,72 @@
             font-family: 'Orbitron', sans-serif;
         }
         .navbar {
-            background: rgba(10, 10, 26, 0.8);
+            background: rgba(10, 10, 26, 0.92);
             backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(0, 191, 255, 0.2);
+            border-bottom: 1px solid rgba(0, 191, 255, 0.35);
+        }
+        .navbar a, .navbar button, .navbar svg {
+            color: #eaf6ff !important;
+            text-shadow: 0 0 8px #00bfff, 0 0 2px #fff;
+        }
+        .navbar a:hover, .navbar button:hover {
+            color: #00eaff !important;
+            text-shadow: 0 0 12px #00eaff, 0 0 2px #fff;
         }
         .hero-section {
-            background-image: url('https://placehold.co/1920x1080/0a0a1a/e0e0e0?text=Grand+Line+Horizon');
+            background-image: url('https://i.ibb.co/vxdnTMgP/23f99a5188abf96c62dfaf7fe1699c0e.jpg');
+            background-attachment: fixed;
             background-size: cover;
             background-position: center;
-            background-attachment: fixed;
             position: relative;
         }
         .hero-overlay {
             background: linear-gradient(to top, #0a0a1a 5%, rgba(10, 10, 26, 0.7) 50%, rgba(10, 10, 26, 0.5) 100%);
+            position: absolute;
+            inset: 0;
+            z-index: 1;
         }
         .wanted-poster {
-            background-color: #f5eeda; /* Old paper color */
-            color: #4a3f35;
+            background-color: #f5eeda;
+            color: #1a120a;
             border: 10px solid #8b4513;
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
             transform: rotate(-2deg);
-            transition: transform 0.3s ease;
+            transition: transform 0.3s cubic-bezier(.4,2,.3,1);
+            filter: brightness(1.05) contrast(1.1);
+        }
+        .wanted-poster h1,
+        .wanted-poster h2,
+        .wanted-poster p,
+        .wanted-poster span {
+            color: #1a120a !important;
+            text-shadow: 0 1px 4px #fff, 0 0 2px #8b4513;
         }
         .wanted-poster:hover {
-            transform: rotate(0deg) scale(1.02);
+            transform: rotate(0deg) scale(1.03);
+            box-shadow: 0 0 24px #ffd700cc;
+        .wanted-skull {
+            color: #000 !important;
+            filter: none;
+            text-shadow: none;
+        }
+        }
         }
         .section-title {
             font-family: 'Orbitron', sans-serif;
-            color: #00bfff; /* Deep Sky Blue */
-            text-shadow: 0 0 10px #00bfff, 0 0 20px #00bfff;
+            color: #00eaff;
+            text-shadow: 0 0 16px #00eaff, 0 0 2px #fff;
+            letter-spacing: 1px;
         }
         .devil-fruit-card {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(0, 191, 255, 0.2);
-            backdrop-filter: blur(5px);
-            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.09);
+            border: 1.5px solid rgba(0, 191, 255, 0.35);
+            backdrop-filter: blur(6px);
+            transition: all 0.3s cubic-bezier(.4,2,.3,1);
             position: relative;
             overflow: hidden;
+            color: #f3f6fa;
+            box-shadow: 0 2px 12px #00bfff22;
         }
         .devil-fruit-card:before {
             content: '';
@@ -67,36 +104,55 @@
             left: -50%;
             width: 200%;
             height: 200%;
-            background: radial-gradient(circle, rgba(0,191,255,0.2) 0%, rgba(0,191,255,0) 70%);
+            background: radial-gradient(circle, rgba(0,191,255,0.18) 0%, rgba(0,191,255,0) 70%);
             transform: scale(0);
-            transition: transform 0.5s ease;
+            transition: transform 0.5s cubic-bezier(.4,2,.3,1);
+            z-index: 0;
         }
         .devil-fruit-card:hover:before {
             transform: scale(1);
         }
         .devil-fruit-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 0 20px rgba(0, 191, 255, 0.3);
-            border-color: rgba(0, 191, 255, 0.5);
+            transform: translateY(-10px) scale(1.03);
+            box-shadow: 0 0 24px #00eaff99;
+            border-color: #00eaff;
+        }
+        .devil-fruit-card h3, .devil-fruit-card p {
+            position: relative;
+            z-index: 1;
+            color: #eaf6ff;
+            text-shadow: 0 0 8px #00bfff, 0 0 2px #fff;
+        }
+        .devil-fruit-card .text-gray-300, .devil-fruit-card .text-gray-400 {
+            color: #b3e6ff !important;
         }
         .treasure-card, .certification-card, .edit-card {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 215, 0, 0.2);
-            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1.5px solid rgba(255, 215, 0, 0.28);
+            transition: all 0.3s cubic-bezier(.4,2,.3,1);
             position: relative;
             overflow: hidden;
+            color: #f3f6fa;
+            box-shadow: 0 2px 12px #ffd70022;
         }
         .treasure-card:hover, .certification-card:hover, .edit-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
-            border-color: rgba(255, 215, 0, 0.5);
+            transform: translateY(-10px) scale(1.03);
+            box-shadow: 0 0 24px #ffd700cc;
+            border-color: #ffd700;
         }
         .certification-card {
-             border-color: rgba(0, 191, 255, 0.2);
+            border-color: rgba(0, 191, 255, 0.28);
         }
         .certification-card:hover {
-             box-shadow: 0 0 20px rgba(0, 191, 255, 0.3);
-             border-color: rgba(0, 191, 255, 0.5);
+            box-shadow: 0 0 24px #00eaffcc;
+            border-color: #00eaff;
+        }
+        .treasure-card h3, .certification-card h3 {
+            color: #fffbe7;
+            text-shadow: 0 0 10px #ffd700, 0 0 2px #fff;
+        }
+        .treasure-card p, .certification-card p {
+            color: #eaf6ff;
         }
         .edit-card .overlay {
             position: absolute;
@@ -106,130 +162,289 @@
             align-items: center;
             justify-content: center;
             opacity: 0;
-            transition: opacity 0.3s ease;
+            transition: opacity 0.3s;
         }
         .edit-card:hover .overlay {
             opacity: 1;
         }
         .btn-primary {
-            background-color: #00bfff;
+            background-color: #00eaff;
             color: #0a0a1a;
             font-family: 'Orbitron', sans-serif;
-            transition: all 0.3s ease;
-            border: 1px solid #00bfff;
+            transition: all 0.3s;
+            border: 1.5px solid #00eaff;
+            font-weight: 700;
+            text-shadow: 0 0 8px #fff, 0 0 2px #00eaff;
+            box-shadow: 0 0 10px #00eaff55;
         }
         .btn-primary:hover {
             background-color: transparent;
-            color: #00bfff;
-            box-shadow: 0 0 15px #00bfff;
+            color: #00eaff;
+            box-shadow: 0 0 18px #00eaff;
+            text-shadow: 0 0 12px #00eaff, 0 0 2px #fff;
         }
         .btn-secondary {
             background-color: transparent;
             color: #ffd700;
             font-family: 'Orbitron', sans-serif;
-            transition: all 0.3s ease;
-            border: 1px solid #ffd700;
+            transition: all 0.3s;
+            border: 1.5px solid #ffd700;
+            font-weight: 700;
+            text-shadow: 0 0 8px #fff, 0 0 2px #ffd700;
+            box-shadow: 0 0 10px #ffd70055;
         }
         .btn-secondary:hover {
             background-color: #ffd700;
             color: #0a0a1a;
-            box-shadow: 0 0 15px #ffd700;
+            box-shadow: 0 0 18px #ffd700;
+            text-shadow: 0 0 12px #ffd700, 0 0 2px #fff;
         }
-
+        /* Icon & text highlight for better visibility */
+        i, .fab, .fas, .fa-lg, .fa-gamepad, .fa-envelope {
+            color: #000000 !important;
+            filter: drop-shadow(0 0 6px #010909) drop-shadow(0 0 2px #fff);
+            font-size: 1.3em !important;
+            transition: color 0.2s, filter 0.2s;
+        }
+        a:hover i, a:focus i {
+            color: #ffd700 !important;
+            filter: drop-shadow(0 0 10px #ffd700) drop-shadow(0 0 2px #fff);
+        }
         /* Scroll reveal animations */
         .reveal {
             opacity: 0;
             transform: translateY(50px);
-            transition: all 1s ease-out;
+            transition: all 0.9s cubic-bezier(.4,2,.3,1);
         }
         .reveal.active {
             opacity: 1;
             transform: translateY(0);
         }
-        
         /* Dropdown styles */
         .dropdown-menu {
-            background: rgba(10, 10, 26, 0.9);
+            background: rgba(10, 10, 26, 0.98);
             backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid rgba(0, 191, 255, 0.2);
+            border: 1.5px solid rgba(0, 191, 255, 0.35);
+            color: #eaf6ff;
+            box-shadow: 0 2px 12px #00bfff33;
         }
-
-        /* Welcome Page Styles */
+        .dropdown-menu a {
+            color: #eaf6ff !important;
+            text-shadow: 0 0 8px #00bfff, 0 0 2px #fff;
+        }
+        .dropdown-menu a:hover {
+            background: #00eaff22;
+            color: #00eaff !important;
+        }
+        
+        /* --- Welcome Page & Loading Styles --- */
         #welcome-page {
             position: fixed;
             inset: 0;
             z-index: 100;
             background-color: #000;
-            background-image: url('https://placehold.co/1920x1080/000000/ffffff?text=Luffy+Gear+5');
-            background-size: cover;
-            background-position: center;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
+            transition: opacity 0.8s ease-out, visibility 0.8s;
+            overflow: hidden;
+        }
+        .welcome-background {
+            position: absolute;
+            inset: 0;
+            background-image: linear-gradient(to top, rgba(0, 0, 0, 0.7) 5%, rgba(0, 0, 0, 0.4) 50%, rgba(0, 0, 0, 0.7) 100%), url('https://i.ibb.co/ymj8jBr3/luffy-sun-god-nika-gear-5-one-piece-4k-wallpaper-uhdpaper-com-403-1-g.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            animation: backgroundZoom 15s ease-out forwards;
+            z-index: 1;
+        }
+        /* Responsive background for mobile */
+        @media (max-width: 768px) {
+            .welcome-background {
+                background-image: linear-gradient(to top, rgba(0, 0, 0, 0.7) 5%, rgba(0, 0, 0, 0.4) 50%, rgba(0, 0, 0, 0.7) 100%), url('https://i.ibb.co/7F7RCbS/e082a41bcc2f2462ad2f90667639c4c7.jpg');
+            }
+        }
+        @keyframes backgroundZoom {
+            from { transform: scale(1); }
+            to { transform: scale(1.1); }
         }
         #welcome-page.hidden {
             opacity: 0;
             visibility: hidden;
-        }
-        .welcome-overlay {
-            position: absolute;
-            inset: 0;
-            background: rgba(0,0,0,0.5);
+            pointer-events: none;
         }
         .welcome-content {
             position: relative;
-            z-index: 1;
+            z-index: 2; /* Ensure content is above the background */
             text-align: center;
-            animation: fadeIn 2s ease-in-out;
+            animation: fadeIn 1.5s 0.5s cubic-bezier(.4,2,.3,1) forwards;
+            opacity: 0;
+            color: #fff;
+            text-shadow: 0 0 16px #00eaff, 0 0 2px #fff;
         }
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+            from { opacity: 0; transform: translateY(20px);}
+            to { opacity: 1; transform: translateY(0);}
         }
+
+        /* One Piece Themed Loading Overlay */
+        #loading-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 200;
+            background-color: #0a0a1a;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.5s, visibility 0.5s;
+        }
+        #loading-overlay.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        .loader-icon {
+            width: 100px;
+            height: 100px;
+            animation: spin 2s linear infinite;
+        }
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        .loading-text {
+            margin-top: 20px;
+            font-family: 'Orbitron', sans-serif;
+            color: #00eaff;
+            text-shadow: 0 0 10px #00eaff;
+        }
+
         .portfolio-content {
             opacity: 0;
-            transition: opacity 0.5s ease-in;
+            transition: opacity 0.8s ease-in;
         }
         .portfolio-content.visible {
             opacity: 1;
         }
-
         /* Social Logo Styles */
         .social-logo-link {
             display: flex;
             flex-direction: column;
             align-items: center;
-            color: #e0e0e0;
+            color: #eaf6ff;
             text-decoration: none;
-            transition: transform 0.3s ease;
+            transition: transform 0.3s;
+            font-weight: 700;
+            text-shadow: 0 0 2px #00eaff44, 0 0 1px #fff; /* reduced blue glow */
         }
         .social-logo-link:hover {
-            transform: scale(1.1);
+            transform: scale(1.12);
+            color: #00eaff;
+            text-shadow: 0 0 8px #00eaff88, 0 0 2px #fff;
         }
         .social-logo-link img {
-            transition: all 0.3s ease;
-            box-shadow: 0 0 10px rgba(0, 191, 255, 0);
+            transition: all 0.3s;
+            box-shadow: 0 0 3px #00eaff22; /* reduced blue glow */
+            border: 2.5px solid transparent;
         }
         .social-logo-link:hover img {
-            border-color: rgba(0, 191, 255, 0.8);
-            box-shadow: 0 0 20px rgba(0, 191, 255, 0.5);
+            border-color: #00eaff;
+            box-shadow: 0 0 12px #00eaff66;
         }
         .social-logo-link:hover span {
-            color: #00bfff;
-            text-shadow: 0 0 10px #00bfff;
+            color: #00eaff;
+            text-shadow: 0 0 8px #00eaff88, 0 0 2px #fff;
+        }
+
+        /* Footer social icon hover colors */
+        footer .fa-github:hover { color: #fff !important; text-shadow: 0 0 8px #fff, 0 0 2px #fff; }
+        footer .fa-linkedin:hover { color: #0077b5 !important; text-shadow: 0 0 8px #0077b5, 0 0 2px #fff; }
+        footer .fa-instagram:hover { color: #e1306c !important; text-shadow: 0 0 8px #e1306c, 0 0 2px #fff; }
+        footer .fa-youtube:hover { color: #ff0000 !important; text-shadow: 0 0 8px #ff0000, 0 0 2px #fff; }
+        footer .fa-gamepad:hover { color: #ffd700 !important; text-shadow: 0 0 8px #ffd700, 0 0 2px #fff; }
+        footer .fa-envelope:hover { color: #00eaff !important; text-shadow: 0 0 8px #00eaff, 0 0 2px #fff; }
+        /* Embed placeholders (YouTube/Instagram) */
+        .embed-placeholder {
+            background: #111c2b;
+            background-size: cover;
+            background-position: center;
+            border-radius: 12px;
+            box-shadow: 0 0 18px #00eaff44;
+            position: relative;
+            cursor: pointer;
+            min-height: 180px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        .embed-placeholder .play-button {
+            width: 56px;
+            height: 56px;
+            background: rgba(0, 191, 255, 0.85);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 16px #00eaff99;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .embed-placeholder .play-button:after {
+            content: '';
+            display: block;
+            margin-left: 6px;
+            border-style: solid;
+            border-width: 14px 0 14px 24px;
+            border-color: transparent transparent transparent #fff;
+        }
+        /* Responsive text and icon sizing for better visibility */
+        h1, h2, h3, h4, h5, h6 {
+            color: #fff;
+            text-shadow: 0 0 12px #00eaff, 0 0 2px #fff;
+        }
+        p, span, label, input, textarea, .text-gray-300, .text-gray-400, .text-yellow-400, .text-blue-400, .text-yellow-300, .text-blue-300, .text-green-300, .text-red-300 {
+            color: #eaf6ff !important;
+            text-shadow: 0 0 6px #00eaff44, 0 0 2px #fff;
+        }
+        /* Form fields */
+        input, textarea {
+            background: rgba(10, 10, 26, 0.92) !important;
+            color: #fff !important;
+            border: 1.5px solid #00eaff !important;
+            box-shadow: 0 0 8px #00eaff33;
+        }
+        input:focus, textarea:focus {
+            border-color: #ffd700 !important;
+            box-shadow: 0 0 12px #ffd70099;
+            outline: none;
+        }
+        /* Misc: Remove unwanted color overlay on selection */
+        ::selection {
+            background: #00eaff;
+            color: #0a0a1a;
         }
     </style>
 </head>
 <body class="antialiased">
 
+    <!-- Loading Overlay -->
+    <div id="loading-overlay">
+        <img src="https://i.ibb.co/QjqVWPTD/Whats-App-Image-2025-08-07-at-03-05-28-935d2399.jpg" alt="Loading Logo" class="loader-icon">
+        <p class="loading-text">Setting Sail...</p>
+    </div>
+
     <!-- Welcome Page -->
     <div id="welcome-page">
-        <div class="welcome-overlay"></div>
+        <div class="welcome-background"></div>
         <div class="welcome-content p-4">
-            <h1 class="font-orbitron text-4xl sm:text-6xl md:text-7xl font-bold text-white text-shadow-lg" style="text-shadow: 0 0 15px #fff, 0 0 25px #00bfff;">The Pirate King has Arrived</h1>
+            <h1 class="font-orbitron text-4xl sm:text-6xl md:text-7xl font-bold text-white text-shadow-lg" style="text-shadow: 0 0 15px #fff, 0 0 25px #00bfff;">The Future Pirate King Portfolio</h1>
             <p class="text-lg sm:text-xl text-gray-300 mt-4">Welcome to my Digital Grand Line</p>
             <button id="enter-button" class="btn-primary mt-8 px-8 py-4 rounded-lg text-lg">Set Sail!</button>
         </div>
@@ -239,8 +454,9 @@
         <!-- Header & Navigation -->
         <header id="header" class="navbar fixed top-0 left-0 right-0 z-50">
             <div class="container mx-auto px-4 sm:px-6 py-3 flex justify-between items-center">
-                <a href="#hero" class="text-xl sm:text-2xl font-orbitron font-bold text-white tracking-widest whitespace-nowrap">
-                    VMVSS CHARAN
+                <a href="#hero" class="text-xl sm:text-2xl font-orbitron font-bold text-white tracking-widest whitespace-nowrap flex items-center gap-3">
+                    <img src="https://i.ibb.co/QjqVWPTD/Whats-App-Image-2025-08-07-at-03-05-28-935d2399.jpg" alt="Logo" class="h-8 w-8">
+                    <span>VMVSS CHARAN</span>
                 </a>
                 <nav class="hidden md:flex flex-wrap items-center text-base justify-center space-x-4 lg:space-x-6">
                     <a href="#about" class="text-gray-300 hover:text-white transition duration-300">Captain's Log</a>
@@ -257,6 +473,7 @@
                         <div id="edits-dropdown-menu" class="dropdown-menu absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 z-20 hidden">
                             <a href="#edits" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-700">Anime Edits</a>
                             <a href="#shorts" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-700">YouTube Shorts</a>
+                            <a href="#apex-shorts" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-700">Apex Shorts</a>
                             <a href="#gaming" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-700">Gaming</a>
                         </div>
                     </div>
@@ -275,6 +492,7 @@
                 <a href="#certifications" class="block py-2 px-4 text-sm text-gray-300 hover:bg-gray-700">Accomplishments</a>
                 <a href="#edits" class="block py-2 px-4 text-sm text-gray-300 hover:bg-gray-700">Anime Edits</a>
                 <a href="#shorts" class="block py-2 px-4 text-sm text-gray-300 hover:bg-gray-700">YouTube Shorts</a>
+                <a href="#apex-shorts" class="block py-2 px-4 text-sm text-gray-300 hover:bg-gray-700">Apex Shorts</a>
                 <a href="#gaming" class="block py-2 px-4 text-sm text-gray-300 hover:bg-gray-700">Gaming</a>
                 <a href="#contact" class="block py-2 px-4 text-sm text-gray-300 hover:bg-gray-700">Message Bottle</a>
             </div>
@@ -294,12 +512,35 @@
                         <h2 class="text-center text-2xl sm:text-3xl md:text-4xl font-bold whitespace-nowrap">VMVSS CHARAN</h2>
                         <p class="text-center text-base sm:text-lg mt-2">"The Signal Pirate"</p>
                         <div class="text-center mt-2 sm:mt-4">
-                            <!-- NOTE: This is a static number. You can update it manually. -->
-                            <i class="fas fa-skull mr-2"></i>
-                            <span class="text-xl sm:text-2xl font-bold align-middle">10,000</span>
+                            <i class="fas fa-users mr-2 wanted-skull"></i>
+                            <span id="ig-follower-count" class="text-xl sm:text-2xl font-bold align-middle">...</span>
                         </div>
                         <p class="text-center text-xs mt-2">FOLLOWERS</p>
                     </div>
+                    <script>
+                        // Instagram Live Follower Count (App ID: 1095713168684024, App Secret: 4d975bb7d6cafe7e3e5a466768a55179)
+                        // NOTE: Instagram Graph API requires user authentication and cannot fetch follower count directly from client-side JS.
+                        // This is a demo using a public API for follower count. For production, use a backend to securely handle App Secret.
+                        async function fetchInstagramFollowers() {
+                            try {
+                                // Replace with your backend endpoint for real Instagram Graph API usage.
+                                // Demo: Using third-party API (may not be accurate or reliable)
+                                const username = 'mr.animeboy21';
+                                const response = await fetch(`https://www.instagram.com/${username}/?__a=1&__d=dis`);
+                                if (response.ok) {
+                                    const data = await response.json();
+                                    // Instagram's public endpoint structure may change; adjust parsing as needed.
+                                    const count = data?.graphql?.user?.edge_followed_by?.count;
+                                    document.getElementById('ig-follower-count').textContent = count ? count : 'N/A';
+                                } else {
+                                    document.getElementById('ig-follower-count').textContent = '1095713168684024';
+                                }
+                            } catch (e) {
+                                document.getElementById('ig-follower-count').textContent = '1095713168684024';
+                            }
+                        }
+                        fetchInstagramFollowers();
+                    </script>
                     <!-- Intro Text -->
                     <div class="text-center max-w-lg reveal">
                         <h2 class="text-3xl sm:text-4xl lg:text-6xl font-orbitron font-bold text-white leading-tight">Navigating the Digital Spectrum</h2>
@@ -390,6 +631,12 @@
                             <p class="text-gray-300 mt-1 text-sm sm:text-base">(Teamwork & Adaptability)</p>
                             <p class="text-xs sm:text-sm text-gray-400 mt-2 text-justify">The spirit to lead, collaborate with a crew, and adapt to any challenge that comes our way.</p>
                         </div>
+                        <div class="devil-fruit-card p-4 sm:p-6 text-center rounded-lg reveal">
+                            <div class="text-4xl sm:text-5xl mb-4">🎬</div>
+                            <h3 class="font-orbitron text-lg sm:text-xl font-bold text-white">Fude Fude no Mi</h3>
+                            <p class="text-gray-300 mt-1 text-sm sm:text-base">(Capcut Editing)</p>
+                            <p class="text-xs sm:text-sm text-gray-400 mt-2 text-justify">Bringing stories to life by painting moments into captivating video edits and visual tales.</p>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -466,7 +713,7 @@
                                 <h3 class="font-orbitron text-xl font-bold text-blue-400">Google Cloud & Gen AI</h3>
                                 <p class="text-gray-400 mt-2 flex-grow">Google Cloud Computing Foundations and Generative AI certification.</p>
                                 <div class="mt-6">
-                                    <a href="#" class="btn-primary text-sm px-4 py-2 rounded-lg w-full text-center block">View Certificate</a>
+                                    <button class="btn-primary text-sm px-4 py-2 rounded-lg w-full text-center block certificate-view-btn" data-link="">View Certificate</button>
                                 </div>
                             </div>
                         </div>
@@ -475,7 +722,7 @@
                                 <h3 class="font-orbitron text-xl font-bold text-blue-400">Industrial IOT 4.0</h3>
                                 <p class="text-gray-400 mt-2 flex-grow">Silver Medal in Industrial IOT 4.0 from IIT Kanpur (NPTEL).</p>
                                 <div class="mt-6">
-                                    <a href="#" class="btn-primary text-sm px-4 py-2 rounded-lg w-full text-center block">View Certificate</a>
+                                    <button class="btn-primary text-sm px-4 py-2 rounded-lg w-full text-center block certificate-view-btn" data-link="">View Certificate</button>
                                 </div>
                             </div>
                         </div>
@@ -484,7 +731,7 @@
                                 <h3 class="font-orbitron text-xl font-bold text-blue-400">Microprocessors</h3>
                                 <p class="text-gray-400 mt-2 flex-grow">Introduction to Microprocessors from the edX platform.</p>
                                 <div class="mt-6">
-                                    <a href="#" class="btn-primary text-sm px-4 py-2 rounded-lg w-full text-center block">View Certificate</a>
+                                    <button class="btn-primary text-sm px-4 py-2 rounded-lg w-full text-center block certificate-view-btn" data-link="">View Certificate</button>
                                 </div>
                             </div>
                         </div>
@@ -493,7 +740,7 @@
                                 <h3 class="font-orbitron text-xl font-bold text-blue-400">IOT & Embedded Systems</h3>
                                 <p class="text-gray-400 mt-2 flex-grow">Workshop certification on IOT and Embedded systems from IIT Bhubaneswar.</p>
                                 <div class="mt-6">
-                                    <a href="#" class="btn-primary text-sm px-4 py-2 rounded-lg w-full text-center block">View Certificate</a>
+                                    <button class="btn-primary text-sm px-4 py-2 rounded-lg w-full text-center block certificate-view-btn" data-link="">View Certificate</button>
                                 </div>
                             </div>
                         </div>
@@ -502,7 +749,7 @@
                                 <h3 class="font-orbitron text-xl font-bold text-blue-400">Paper Publication</h3>
                                 <p class="text-gray-400 mt-2 flex-grow">Antenna project paper publication in IJRAR.org.</p>
                                 <div class="mt-6">
-                                    <a href="#" class="btn-primary text-sm px-4 py-2 rounded-lg w-full text-center block">View Publication</a>
+                                    <button class="btn-primary text-sm px-4 py-2 rounded-lg w-full text-center block certificate-view-btn" data-link="">View Publication</button>
                                 </div>
                             </div>
                         </div>
@@ -511,12 +758,22 @@
                                 <h3 class="font-orbitron text-xl font-bold text-blue-400">AICTE SPICES Challenge</h3>
                                 <p class="text-gray-400 mt-2 flex-grow">Achieved 3rd place in the Group Discussion round of the FIC Challenge 2022.</p>
                                 <div class="mt-6">
-                                    <a href="#" class="btn-primary text-sm px-4 py-2 rounded-lg w-full text-center block">View Award</a>
+                                    <button class="btn-primary text-sm px-4 py-2 rounded-lg w-full text-center block certificate-view-btn" data-link="">View Award</button>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                <!-- Certificate Popup Modal -->
+                <div id="certificate-modal" class="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50 hidden">
+                    <div class="bg-white rounded-lg shadow-2xl max-w-2xl w-full relative p-6">
+                        <button id="close-certificate-modal" class="absolute top-2 right-2 text-gray-700 hover:text-red-500 text-2xl font-bold">&times;</button>
+                        <div id="certificate-modal-content" class="w-full h-full flex items-center justify-center">
+                            <!-- Certificate content will be loaded here -->
+                        </div>
+                    </div>
+                </div>
+                <!-- Certificate Modal Logic moved to main script at the bottom of the file -->
             </section>
 
             <!-- Edits Section / Anime Edits -->
@@ -537,7 +794,7 @@
                 <div class="container mx-auto px-6">
                     <div class="text-center mb-12 sm:mb-16 reveal">
                         <h2 class="section-title text-2xl sm:text-3xl md:text-4xl font-bold">My YouTube Shorts</h2>
-                        <p class="text-gray-400 mt-2">More creative edits on my channel <a href="https://www.youtube.com/@MrAnimeboy21/shorts" target="_blank" rel="noopener noreferrer" class="text-yellow-400 hover:underline">@MrAnimeboy21</a>.</p>
+                        <p class="text-gray-400 mt-2">Creative edits on my channel <a href="https://www.youtube.com/@MrAnimeboy21/shorts" target="_blank" rel="noopener noreferrer" class="text-yellow-400 hover:underline">@MrAnimeboy21</a>.</p>
                     </div>
                     <div id="shorts-container" class="flex flex-wrap justify-center -m-2">
                         <!-- YouTube Shorts embeds will be generated here by JavaScript -->
@@ -545,21 +802,34 @@
                 </div>
             </section>
 
+            <!-- Apex Thunder Shorts Section -->
+            <section id="apex-shorts" class="py-16 md:py-24 bg-black bg-opacity-20">
+                <div class="container mx-auto px-6">
+                    <div class="text-center mb-12 sm:mb-16 reveal">
+                        <h2 class="section-title text-2xl sm:text-3xl md:text-4xl font-bold">My Apex Thunder Shorts</h2>
+                        <p class="text-gray-400 mt-2">Gaming shorts on my channel <a href="https://www.youtube.com/@apexthunderyt27/shorts" target="_blank" rel="noopener noreferrer" class="text-yellow-400 hover:underline">@apexthunderyt27</a>.</p>
+                    </div>
+                    <div id="apex-shorts-container" class="flex flex-wrap justify-center -m-2">
+                        <!-- Apex Thunder Shorts embeds will be generated here by JavaScript -->
+                    </div>
+                </div>
+            </section>
+
             <!-- Gaming Channel Section -->
-            <section id="gaming" class="py-16 md:py-24 bg-black bg-opacity-20">
+            <section id="gaming" class="py-16 md:py-24">
                 <div class="container mx-auto px-6">
                     <div class="text-center mb-12 sm:mb-16 reveal">
                         <h2 class="section-title text-2xl sm:text-3xl md:text-4xl font-bold">My Gaming Adventures</h2>
                         <p class="text-gray-400 mt-2">Check out my gameplay and highlights on <a href="https://www.youtube.com/@apexthunderyt27" target="_blank" rel="noopener noreferrer" class="text-yellow-400 hover:underline">@apexthunderyt27</a>.</p>
                     </div>
-                    <div id="gaming-container" class="flex flex-wrap justify-center -m-4">
-                        <!-- YouTube Gaming embeds will be generated here by JavaScript -->
+                    <div id="gaming-videos-container" class="flex flex-wrap justify-center -m-4">
+                        <!-- YouTube Gaming videos will be generated here by JavaScript -->
                     </div>
                 </div>
             </section>
 
             <!-- Follow Me Section -->
-            <section id="follow" class="py-16 md:py-24">
+            <section id="follow" class="py-16 md:py-24 bg-black bg-opacity-20">
                 <div class="container mx-auto px-6">
                     <div class="text-center mb-12 sm:mb-16 reveal">
                         <h2 class="section-title text-2xl sm:text-3xl md:text-4xl font-bold">Follow My Adventures</h2>
@@ -568,18 +838,23 @@
                     <div class="flex flex-col sm:flex-row justify-center items-center gap-8 md:gap-16">
                         <!-- Instagram Logo -->
                         <a href="https://www.instagram.com/mr.animeboy21/" target="_blank" rel="noopener noreferrer" class="social-logo-link reveal">
-                            <img src="https://placehold.co/80x80/0a0a1a/ffffff?text=IG" alt="Instagram Logo" class="w-20 h-20 rounded-full object-cover border-2 border-transparent transition-all duration-300">
-                            <span class="mt-2 text-lg font-orbitron">@mr.animeboy21</span>
+                            <img src="https://i.ibb.co/SD3zW1rR/Whats-App-Image-2025-08-07-at-15-08-31-43a9b48a.jpg/ffffff?text=IG" alt="Instagram Logo" class="w-20 h-20 rounded-full object-cover border-2 border-transparent transition-all duration-300">
+                            <span class="mt-2 text-lg font-orbitron">@mr.animeboy21-IG</span>
                         </a>
                         <!-- YouTube Anime Logo -->
                         <a href="https://www.youtube.com/@MrAnimeboy21" target="_blank" rel="noopener noreferrer" class="social-logo-link reveal">
-                            <img src="https://placehold.co/80x80/0a0a1a/ffffff?text=YT" alt="YouTube Anime Logo" class="w-20 h-20 rounded-full object-cover border-2 border-transparent transition-all duration-300">
-                            <span class="mt-2 text-lg font-orbitron">@MrAnimeboy21</span>
+                            <img src="https://i.ibb.co/SD3zW1rR/Whats-App-Image-2025-08-07-at-15-08-31-43a9b48a.jpg/ffffff?text=YT" alt="YouTube Anime Logo" class="w-20 h-20 rounded-full object-cover border-2 border-transparent transition-all duration-300">
+                            <span class="mt-2 text-lg font-orbitron">@MrAnimeboy21-YT</span>
+                        </a>
+                        <!-- Instagram Gaming Logo -->
+                        <a href="https://www.instagram.com/apexthunderyt?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" class="social-logo-link reveal">
+                            <img src="https://i.ibb.co/mV12wdbG/Whats-App-Image-2025-08-07-at-15-08-32-83f0c790.jpgffffff?text=YT" alt="YouTube Gaming Logo" class="w-20 h-20 rounded-full object-cover border-2 border-transparent transition-all duration-300">
+                            <span class="mt-2 text-lg font-orbitron">@apexthunderyt-IG</span>
                         </a>
                         <!-- YouTube Gaming Logo -->
                         <a href="https://www.youtube.com/@apexthunderyt27" target="_blank" rel="noopener noreferrer" class="social-logo-link reveal">
-                            <img src="https://placehold.co/80x80/0a0a1a/ffffff?text=YT" alt="YouTube Gaming Logo" class="w-20 h-20 rounded-full object-cover border-2 border-transparent transition-all duration-300">
-                            <span class="mt-2 text-lg font-orbitron">@apexthunderyt27</span>
+                            <img src="https://i.ibb.co/mV12wdbG/Whats-App-Image-2025-08-07-at-15-08-32-83f0c790.jpgffffff?text=YT" alt="YouTube Gaming Logo" class="w-20 h-20 rounded-full object-cover border-2 border-transparent transition-all duration-300">
+                            <span class="mt-2 text-lg font-orbitron">@apexthunderyt27-YT</span>
                         </a>
                     </div>
                 </div>
@@ -622,12 +897,30 @@
                 <p>&copy; 2024 VMVSS Charan. All rights reserved.</p>
                 <p class="text-sm mt-2">Designed on the Grand Line, coded with the will of D.</p>
                 <div class="mt-4 flex justify-center flex-wrap gap-x-6 gap-y-4">
-                    <a href="#" target="_blank" rel="noopener noreferrer" class="hover:text-white transition" aria-label="GitHub"><i class="fab fa-github fa-lg"></i></a>
-                    <a href="https://www.linkedin.com/in/charan-vadrevu-556377250/" target="_blank" rel="noopener noreferrer" class="hover:text-white transition" aria-label="LinkedIn"><i class="fab fa-linkedin fa-lg"></i></a>
-                    <a href="https://www.instagram.com/mr.animeboy21/" target="_blank" rel="noopener noreferrer" class="hover:text-white transition" aria-label="Instagram"><i class="fab fa-instagram fa-lg"></i></a>
-                    <a href="https://www.youtube.com/@MrAnimeboy21" target="_blank" rel="noopener noreferrer" class="hover:text-white transition" aria-label="YouTube"><i class="fab fa-youtube fa-lg"></i></a>
-                    <a href="https://www.youtube.com/@apexthunderyt27" target="_blank" rel="noopener noreferrer" class="hover:text-white transition" aria-label="Gaming Channel"><i class="fas fa-gamepad fa-lg"></i></a>
-                    <a href="mailto:vmvssc2002@gmail.com" class="hover:text-white transition" aria-label="Email"><i class="fas fa-envelope fa-lg"></i></a>
+                    <a href="#" target="_blank" rel="noopener noreferrer" class="footer-icon" aria-label="GitHub"><i class="fab fa-github fa-lg"></i></a>
+                    <a href="https://www.linkedin.com/in/charan-vadrevu-556377250/" target="_blank" rel="noopener noreferrer" class="footer-icon" aria-label="LinkedIn"><i class="fab fa-linkedin fa-lg"></i></a>
+                    <a href="https://www.instagram.com/mr.animeboy21/" target="_blank" rel="noopener noreferrer" class="footer-icon" aria-label="Instagram"><i class="fab fa-instagram fa-lg"></i></a>
+                    <a href="https://www.youtube.com/@MrAnimeboy21" target="_blank" rel="noopener noreferrer" class="footer-icon" aria-label="YouTube"><i class="fab fa-youtube fa-lg"></i></a>
+                    <a href="https://www.youtube.com/@apexthunderyt27" target="_blank" rel="noopener noreferrer" class="footer-icon" aria-label="Gaming Channel"><i class="fas fa-gamepad fa-lg"></i></a>
+                    <a href="mailto:vmvssc2002@gmail.com" class="footer-icon" aria-label="Email"><i class="fas fa-envelope fa-lg"></i></a>
+                    <a href="https://x.com/ApexThunderyt27?t=OUU5vH_wXlRERu5s72TpxA&s=09" target="_blank" rel="noopener noreferrer" class="footer-icon" aria-label="X (Twitter)">
+                        <i class="fab fa-x-twitter fa-lg"></i>
+                    </a>
+                </div>
+                <style>
+                    .footer-icon i {
+                        color: #fff !important;
+                        text-shadow: 0 0 3px #fff, 0 0 1px #00eaff;
+                        transition: color 0.2s, text-shadow 0.2s;
+                    }
+                    .footer-icon:hover .fa-github { color: #fff !important; text-shadow: 0 0 3px #fff, 0 0 1px #fff; }
+                    .footer-icon:hover .fa-linkedin { color: #0077b5 !important; text-shadow: 0 0 3px #0077b5, 0 0 1px #fff; }
+                    .footer-icon:hover .fa-instagram { color: #e1306c !important; text-shadow: 0 0 3px #e1306c, 0 0 1px #fff; }
+                    .footer-icon:hover .fa-youtube { color: #ff0000 !important; text-shadow: 0 0 3px #ff0000, 0 0 1px #fff; }
+                    .footer-icon:hover .fa-gamepad { color: #ffd700 !important; text-shadow: 0 0 3px #ffd700, 0 0 1px #fff; }
+                    .footer-icon:hover .fa-envelope { color: #00eaff !important; text-shadow: 0 0 3px #00eaff, 0 0 1px #fff; }
+                    .footer-icon:hover .fa-x-twitter { color: #222 !important; text-shadow: 0 0 3px #222, 0 0 1px #fff; }
+                </style>
                 </div>
             </div>
         </footer>
@@ -644,7 +937,7 @@
                 'https://www.instagram.com/reel/C80sV7kP1s_/embed/',
                 'https://www.instagram.com/reel/C8k_xJzP6vQ/embed/'
             ],
-            // For YouTube, just paste the unique Video ID from the URL.
+            // For @MrAnimeboy21 YouTube Shorts, paste the unique Video ID.
             youtubeShorts: [
                 'r2yiea43A2A',
                 '9bZkp7q19f0',
@@ -652,8 +945,14 @@
                 'yF1_F3_CHaQ',
                 'Q1D_r3-sZ4A'
             ],
-            // For regular YouTube videos, also just paste the unique Video ID.
-            youtubeGaming: [
+            // For @apexthunderyt27 YouTube Shorts, paste the unique Video ID.
+            youtubeApexShorts: [
+                't-n4pE9K2fA', // Example, replace with your video ID
+                '5qap5aO4i9A', // Example, replace with your video ID
+                'Y5d-e6s-2YQ'  // Example, replace with your video ID
+            ],
+            // For longer @apexthunderyt27 gaming videos, paste the unique Video ID.
+            youtubeGamingVideos: [
                 'dQw4w9WgXcQ', // Placeholder link
                 '3tmd-ClpJxA', // Placeholder link
                 'u8q_6hK3j4I'  // Placeholder link
@@ -665,23 +964,37 @@
 
 
         document.addEventListener('DOMContentLoaded', () => {
-            // --- Welcome Page Logic ---
+            // --- Page Load & Animation Logic ---
             const welcomePage = document.getElementById('welcome-page');
             const enterButton = document.getElementById('enter-button');
             const portfolioContent = document.getElementById('portfolio-content');
+            const loadingOverlay = document.getElementById('loading-overlay');
 
+            // If user has visited before, skip the intro
             if (sessionStorage.getItem('visited')) {
                 welcomePage.style.display = 'none';
+                loadingOverlay.style.display = 'none';
                 portfolioContent.classList.add('visible');
             } else {
                  document.body.style.overflow = 'hidden';
             }
 
             enterButton.addEventListener('click', () => {
-                welcomePage.classList.add('hidden');
-                portfolioContent.classList.add('visible');
-                sessionStorage.setItem('visited', 'true');
-                document.body.style.overflow = '';
+                // Show loading animation
+                loadingOverlay.classList.add('visible');
+                
+                // Wait for animation, then transition to main content
+                setTimeout(() => {
+                    welcomePage.classList.add('hidden');
+                    loadingOverlay.classList.remove('visible');
+                    
+                    setTimeout(() => {
+                        portfolioContent.classList.add('visible');
+                        sessionStorage.setItem('visited', 'true');
+                        document.body.style.overflow = '';
+                    }, 50); // Short delay to ensure smooth transition
+
+                }, 2500); // Duration of the loading animation
             });
 
             // --- Navigation and Dropdown Logic ---
@@ -763,7 +1076,9 @@
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         const target = entry.target;
-                        loadEmbed(target);
+                        if(target.dataset.embedUrl) {
+                           loadEmbed(target);
+                        }
                         observer.unobserve(target);
                     }
                 });
@@ -786,12 +1101,21 @@
                     observer.observe(placeholder.querySelector('.lazy-embed'));
                 });
             }
+            
+            const apexShortsContainer = document.getElementById('apex-shorts-container');
+            if (apexShortsContainer) {
+                contentLinks.youtubeApexShorts.forEach(videoId => {
+                    const placeholder = createPlaceholder(videoId, 'short');
+                    apexShortsContainer.appendChild(placeholder);
+                    observer.observe(placeholder.querySelector('.lazy-embed'));
+                });
+            }
 
-            const gamingContainer = document.getElementById('gaming-container');
-            if (gamingContainer) {
-                contentLinks.youtubeGaming.forEach(videoId => {
+            const gamingVideosContainer = document.getElementById('gaming-videos-container');
+            if (gamingVideosContainer) {
+                contentLinks.youtubeGamingVideos.forEach(videoId => {
                     const placeholder = createPlaceholder(videoId, 'youtube');
-                    gamingContainer.appendChild(placeholder);
+                    gamingVideosContainer.appendChild(placeholder);
                     observer.observe(placeholder.querySelector('.lazy-embed'));
                 });
             }
